@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<demos>
+    <name>PicoScope 2000 Series - MATLAB Instrument Driver</name>
+    <type>toolbox</type>
+    <icon>HelpIcon.DEMOS</icon>
+    <description>This toolbox contains a number of examples demonstrating how to call Instrument Driver functions to collect data and also use the signal generator.</description>
+    <website></website>
+    
+    <demosection>
+        <label>Block Mode Examples</label>
+        <demoitem>
+            <label>Block Data Capture Example</label>
+            <type>M-file</type>
+            <source>PS2000_ID_Block_Example</source>
+        </demoitem>
+        <demoitem>
+            <label>Block Data Capture with Simple Trigger Example</label>
+            <type>M-file</type>
+            <source>PS2000_ID_Block_SimpleTrig_Example</source>
+        </demoitem>
+        <demoitem>
+            <label>Block Data Capture with Simple Trigger and Pulse Count Example</label>
+            <type>M-file</type>
+            <source>PS2000_ID_Block_SimpleTrig_PulseCount_Example</source>
+        </demoitem>
+    </demosection>
+    
+    <demosection>
+        <label>Streaming Mode Examples</label>
+        <demoitem>
+            <label>Fast Streaming Data Capture with Live Plot Example</label>
+            <type>M-file</type>
+            <source>PS2000_ID_FastStreaming_Live_Example</source>
+        </demoitem>
+        <demoitem>
+            <label>Fast Streaming Data Capture with Simple Trigger Example</label>
+            <type>M-file</type>
+            <source>PS2000_ID_FastStreaming_SimpleTrig_Example</source>
+        </demoitem>
+    </demosection>
+    
+    <demosection>
+        <label>Signal Generator Examples</label>
+        <demoitem>
+            <label>Signal Generator Example</label>
+            <type>M-file</type>
+            <source>PS2000_ID_Sig_Gen_Example</source>
+        </demoitem>
+    </demosection>
+
+</demos>
