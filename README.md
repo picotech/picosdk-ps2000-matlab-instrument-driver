@@ -29,7 +29,7 @@ The driver should also support the following products which are now obsolete:
 
 **Note:**
 
-For PicoScope 2205 MSO, 2205A MSO, 2206, 2206A/B/B MSO, 2207A/B/B MSO, 2208A/B/B MSO, 2405A, 2406B, 2407B and 2408B please use the 
+For PicoScope 2205 MSO, 2205A MSO, 2206, 2206A/B/B MSO, 2207A/B/B MSO, 2208A/B/B MSO, 2405A, 2406B, 2407B and 2408B models, please use the 
 [PicoScope 2000 Series (A API) - MATLAB Generic Instrument Driver](https://uk.mathworks.com/matlabcentral/fileexchange/55504-picoscope-2000-series--a-api--matlab-generic-instrument-driver).
 
 ## Getting started
