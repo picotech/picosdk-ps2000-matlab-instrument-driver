@@ -44,6 +44,13 @@ For PicoScope 2205 MSO, 2205A MSO, 2206, 2206A/B/B MSO, 2207A/B/B MSO, 2208A/B/B
 
 * MATLAB 2015b is recommended for 32-bit versions of MATLAB on Microsoft Windows operating systems.
 
+### Installing the Instrument Driver
+
+We recommend using the [Add-Ons Explorer](https://uk.mathworks.com/help/matlab/matlab_env/get-add-ons.html) in MATLAB in order to install these files and obtain updates.
+
+If your version of MATLAB does not have the Add-Ons Explorer, download the zip file from the [MATLAB Central File Exchange page](https://uk.mathworks.com/matlabcentral/fileexchange/40134-picoscope-2000-series-matlab-generic-instrument-driver)
+ and add the root and sub-folders to the MATLAB path.
+
 ### Installing drivers
 
 Drivers are available for the following platforms. Refer to the subsections below for further information.
@@ -74,9 +81,13 @@ Issues can be reported via the [Issues tab](https://github.com/picotech/picosdk-
 
 Please leave a comment and rating for this submission on our [MATLAB Central File Exchange page](https://uk.mathworks.com/matlabcentral/fileexchange/40134-picoscope-2000-series-matlab-generic-instrument-driver).
 
+## Contributing
+
+Contributions to examples are welcome. Please refer to our [guidelines for contributing](.github/CONTRIBUTING.md) for further information.
+
 ## Copyright and licensing
 
-picosdk-ps2000-matlab-instrument-driver is Copyright (C) 2013 - 2017 Pico Technology Ltd. All rights reserved. See [LICENSE.md](LICENSE.md) for license terms. 
+See [LICENSE.md](LICENSE.md) for license terms. 
 
 *PicoScope* is a registered trademark of Pico Technology Ltd. 
 
@@ -87,7 +98,5 @@ is a trademark of The Mathworks, Inc.
 
 *Linux* is the registered trademark of Linus Torvalds in the U.S. and other countries.
 
-## Contributing
-
-Contributions to examples are welcome. Please refer to our [guidelines for contributing](.github/CONTRIBUTING.md) for further information.
+Copyright © 2013-2017 Pico Technology Ltd. All rights reserved. 
 
