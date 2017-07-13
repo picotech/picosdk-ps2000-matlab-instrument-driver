@@ -213,7 +213,7 @@ cd(ps2000ConfigInfo.workingDir);
 % Find prototype file names based on architecture
 ps2000ConfigInfo.ps2000MFile = str2func(strcat('ps2000MFile_', ps2000ConfigInfo.archStr));
 
-[ps2000Methodinfo, ps2000Structs, ps2000Enuminfo, ps2000ThunkLibName] = ps2000MFile();
+[ps2000Methodinfo, ps2000Structs, ps2000Enuminfo, ps2000ThunkLibName] = ps2000ConfigInfo.ps2000MFile();
 
 %% PicoScope Settings
 % Define Settings for PicoScope 2000 series.

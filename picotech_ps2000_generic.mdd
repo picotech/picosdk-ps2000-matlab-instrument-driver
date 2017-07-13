@@ -6,7 +6,7 @@
    <InstrumentType>Oscilloscope</InstrumentType>
    <InstrumentManufacturer>Pico Technology Ltd.</InstrumentManufacturer>
    <InstrumentModel>PicoScope 2000 Series</InstrumentModel>
-   <InstrumentVersion>1.1.21</InstrumentVersion>
+   <InstrumentVersion>1.1.22</InstrumentVersion>
    <Identify/>
    <Reset/>
    <Selftest/>
@@ -17,33 +17,44 @@
 % OBJ is the device object.
 % End of function definition - DO NOT EDIT
 %
-% Copyright © 2013 - 2016 Pico Technology Ltd. All rights reserved.
+% Copyright © 2013-2017 Pico Technology Ltd. All rights reserved.
 % You may copy and distribute this file as long as it remains unmodified.
 % SB
 
-    fprintf('\nCopyright © 2013 - 2017 Pico Technology Ltd. All rights reserved.\n');
+    fprintf('\nCopyright © 2013-2017 Pico Technology Ltd. All rights reserved.\n');
     fprintf('\n');
     fprintf('PicoScope 2000 Series MATLAB Instrument Driver\n');
     fprintf('\n');
+    
+    % Load libraries
+    % ==============
+    
+    % Indentify architecture and obtain function handle for the correct
+    % prototype file.
+    
+    archStr = computer('arch');
+    
+    ps2000MFile = str2func(strcat('ps2000MFile_', archStr));
+    ps2000WrapMFile = str2func(strcat('ps2000WrapMFile_', archStr));
 
     % Only load library once 
-    if(libisloaded('ps2000'))
+    if (libisloaded('ps2000'))
        
         % Do nothing
         
     else
         
-        if(ismac)
+        if (ismac)
             
-            [ps2000NotFound, ps2000Warnings] = loadlibrary('libps2000.dylib', @ps2000MFile, 'alias', 'ps2000');
+            [ps2000NotFound, ps2000Warnings] = loadlibrary('libps2000.dylib', ps2000MFile, 'alias', 'ps2000');
             
-        elseif(isunix)
+        elseif (isunix)
             
-            [ps2000NotFound, ps2000Warnings] = loadlibrary('libps2000.so', @ps2000MFile, 'alias', 'ps2000');
+            [ps2000NotFound, ps2000Warnings] = loadlibrary('libps2000.so', ps2000MFile, 'alias', 'ps2000');
                 
-        elseif(ispc)
+        elseif (ispc)
             
-            [ps2000NotFound, ps2000Warnings] = loadlibrary('ps2000.dll', @ps2000MFile);
+            [ps2000NotFound, ps2000Warnings] = loadlibrary('ps2000.dll', ps2000MFile);
             
         else
             
@@ -54,23 +65,23 @@
     end
 
      % Only load library once 
-    if(libisloaded('ps2000Wrap'))
+    if (libisloaded('ps2000Wrap'))
        
         % Do nothing
         
     else
                                                   
-        if(ismac)
+        if (ismac)
             
-            [ps2000NotFound, ps2000Warnings] = loadlibrary('libps2000wrap.dylib', @ps2000WrapMFile, 'alias', 'ps2000Wrap');
+            [ps2000NotFound, ps2000Warnings] = loadlibrary('libps2000wrap.dylib', ps2000WrapMFile, 'alias', 'ps2000Wrap');
             
-        elseif(isunix)
+        elseif (isunix)
             
-            [ps2000NotFound, ps2000Warnings] = loadlibrary('libps2000Wrap.so', @ps2000WrapMFile, 'alias', 'ps2000Wrap');
+            [ps2000NotFound, ps2000Warnings] = loadlibrary('libps2000Wrap.so', ps2000WrapMFile, 'alias', 'ps2000Wrap');
              
-        elseif(ispc)
+        elseif (ispc)
             
-            [ps2000NotFound, ps2000Warnings] = loadlibrary('ps2000Wrap.dll', @ps2000WrapMFile);
+            [ps2000NotFound, ps2000Warnings] = loadlibrary('ps2000Wrap.dll', ps2000WrapMFile);
             
         else            
             
@@ -79,29 +90,89 @@
         end
         
     end
+    
+    % Load in enumeration and structure information
+    % =============================================
+    
+    [~, obj.DriverData.structs, obj.DriverData.enums, ~] = ps2000MFile(); 
 
-    % Confirm data files have been loaded
-    if (exist('PicoConstants.m') == 0)
+    % Define constant values used by this Instrument Driver
+    % =====================================================
+    
+    % Constants from ps2000.h header file
+    % ---------------------------------------
+    
+    % Timebases
+    obj.DriverData.constants.PS2000_MAX_TIMEBASE = 19;
 
-        error('File PicoConstants.m not found - Please ensure that the location of this file is added to the MATLAB Path.')
+    obj.DriverData.constants.PS2105_MAX_TIMEBASE = 20;
+    obj.DriverData.constants.PS2104_MAX_TIMEBASE = 19;
 
-    end
+    obj.DriverData.constants.PS2200_MAX_TIMEBASE = 23;
+    obj.DriverData.constants.PS2000_MAX_OVERSAMPLE = 256;
 
-    if (exist('PS2000Constants.m') == 0)
+    % ETS Mode
+    obj.DriverData.constants.PS2105_MAX_ETS_CYCLES =	250;
+    obj.DriverData.constants.PS2105_MAX_ETS_INTERLEAVE =	50;
 
-        error('File PS2000Constants.m not found - Please ensure that the location of this file is added to the MATLAB Path.')
+    obj.DriverData.constants.PS2104_MAX_ETS_CYCLES =	125;
+    obj.DriverData.constants.PS2104_MAX_ETS_INTERLEAVE =	25;
 
-    end
+    obj.DriverData.constants.PS2203_MAX_ETS_CYCLES =	250;
+    obj.DriverData.constants.PS2203_MAX_ETS_INTERLEAVE = 50;
 
-    if(isstruct(evalin('base', 'ps2000Enuminfo')) &amp;&amp; isstruct(evalin('base', 'ps2000Structs')))
+    obj.DriverData.constants.PS2204_MAX_ETS_CYCLES =	250;
+    obj.DriverData.constants.PS2204_MAX_ETS_INTERLEAVE = 40;
 
-        % Do nothing
+    obj.DriverData.constants.PS2205_MAX_ETS_CYCLES =	250;
+    obj.DriverData.constants.PS2205_MAX_ETS_INTERLEAVE = 40;
 
-    else
+    obj.DriverData.constants.PS2000_MIN_ETS_CYCLES_INTERLEAVE_RATIO = 1;
+    obj.DriverData.constants.PS2000_MAX_ETS_CYCLES_INTERLEAVE_RATIO = 10;
 
-        error('Enumerations and/or Structures not loaded from ps2000MFile');
+    % Function/Arbitrary Waveform Parameters
+    obj.DriverData.constants.PS2000_MIN_SIGGEN_FREQ = single(0.0);
+    obj.DriverData.constants.PS2000_MAX_SIGGEN_FREQ = single(100000.0);
 
-    end</Code>
+    obj.DriverData.constants.PS2000_MIN_SIGGEN_OFFSET_MV = -2000;    % -2 Volts
+    obj.DriverData.constants.PS2000_MAX_SIGGEN_OFFSET_MV = 2000;     % +2 Volts
+
+    obj.DriverData.constants.PS2000_MIN_SIGGEN_PKTOPK_MV = 0;        % 0
+    obj.DriverData.constants.PS2000_MAX_SIGGEN_PKTOPK_MV = 4000;     % +/- 2 Volts
+
+    obj.DriverData.constants.PS2000_SIGGEN_ZERO_VOLTAGE_DC = 0;
+
+    obj.DriverData.constants.PS2000_AWG_DDS_FREQUENCY = 48e6; % DDS Frequency of 48MHz.
+
+    % Although the PS2000 uses an 8-bit ADC, it is usually possible to
+    % oversample (collect multiple readings at each time) by up to 256.
+    % the results are therefore ALWAYS scaled up to 16-bits, even if
+    % oversampling is not used.
+    %
+    % The maximum and minimum values returned are therefore as follows:
+
+    obj.DriverData.constants.PS2000_MAX_VALUE = 32767;
+    obj.DriverData.constants.PS2000_MIN_VALUE = -32767;
+    obj.DriverData.constants.PS2000_LOST_DATA = -32768;
+
+    obj.DriverData.constants.MAX_CHANNELS = 4;
+
+    % PicoScope Models
+
+    obj.DriverData.variants.MODEL_NONE    = 'NONE';
+    obj.DriverData.variants.MODEL_PS2104  = '2104';
+    obj.DriverData.variants.MODEL_PS2105  = '2105';
+    obj.DriverData.variants.MODEL_PS2202  = '2202';
+    obj.DriverData.variants.MODEL_PS2203  = '2203';
+    obj.DriverData.variants.MODEL_PS2204  = '2204';
+    obj.DriverData.variants.MODEL_PS2205  = '2205';
+    obj.DriverData.variants.MODEL_PS2204A = '2204A';
+    obj.DriverData.variants.MODEL_PS2205A = '2205A';
+    
+    
+    
+    
+    </Code>
    </CreateInitCode>
    <ConnectInitCode>
       <Type>MCode</Type>
