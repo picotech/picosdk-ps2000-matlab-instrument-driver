@@ -11,8 +11,7 @@ This Instrument Driver package includes the following:
 
 * The driver can be used with the Test and Measurement Tool to carry out the following: 
 
-  * Acquire data in Block mode 
-  * Acquire data in Rapid Block mode 
+  * Acquire data in Block mode  
   * Use the Built-in Function/Arbitrary Waveform Generator (model-dependent)
 
 ## Supported Models
