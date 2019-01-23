@@ -180,11 +180,11 @@ if (~any(strcmp(ps2000ConfigInfo.psTbxName, {ps2000ConfigInfo.v.Name})))
     
     if (isempty(ps2000ConfigInfo.psTbxFound))
         
-        ps2000ConfigInfo.psTbxNotFoundWarningMsg = sprintf(['Please install the PicoScope Support Toolbox '...
-            'via the Add-Ons Explorer or download the zip file from MATLAB Central File Exchange ' ...
-            'and add the location of the extracted contents to the MATLAB path.']);
+        ps2000ConfigInfo.psTbxNotFoundWarningMsg = sprintf(['Please either:\n'...
+            '(1) install the PicoScope Support Toolbox via the Add-Ons Explorer or\n'...
+            '(2) download the zip file from MATLAB Central File Exchange and add the location of the extracted contents to the MATLAB path.']);
         
-        warning('PS2000Config:PSTbxDirNotFound', ps2000ConfigInfo.psTbxNotFoundWarningMsg);
+        warning('PS2000Config:PSTbxDirNotFound', ['PicoScope Support Toolbox not found. ', ps2000ConfigInfo.psTbxNotFoundWarningMsg]);
         
         ps2000ConfigInfo.f = warndlg(ps2000ConfigInfo.psTbxNotFoundWarningMsg, 'PicoScope Support Toolbox Not Found', 'modal');
         uiwait(ps2000ConfigInfo.f);
