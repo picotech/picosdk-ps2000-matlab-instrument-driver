@@ -1,6 +1,6 @@
 # PicoScope 2000 Series - MATLAB Generic Instrument Driver
 
-This MATLAB® Generic Instrument Driver allows a user to acquire block and streaming data from the PicoScope® 2000 Series Oscilloscopes and control in-built signal generator functionality. The data could be processed in MATLAB using functions from Toolboxes such as [Signal Processing Toolbox](https://www.mathworks.com/products/signal.html). 
+This MATLABï¿½ Generic Instrument Driver allows you to acquire block and streaming data from the PicoScopeï¿½ 2000 Series Oscilloscopes and control in-built signal generator functionality. The data could be processed in MATLAB using functions from Toolboxes such as [Signal Processing Toolbox](https://www.mathworks.com/products/signal.html). 
 
 The driver has been created using Instrument Control Toolbox v3.2 and updated using Instrument Control Toolbox v3.6.
 
@@ -20,7 +20,7 @@ The driver will work with the following PicoScope models:
 
 * PicoScope 2204A & 2205A
 
-The driver should also support the following products which are now obsolete:
+The driver supports the following products which are now obsolete:
 
 * PicoScope 2104 & 2105 
 * PicoScope 2202 
@@ -35,7 +35,7 @@ For PicoScope 2205 MSO, 2205A MSO, 2206, 2206A/B/B MSO, 2207A/B/B MSO, 2208A/B/B
 
 ### Prerequisites
 
-* [MATLAB](https://uk.mathworks.com/products/matlab.html) for Microsoft Windows (32- or 64-bit) or Linux operating systems (64-bit).
+* [MATLAB](https://uk.mathworks.com/products/matlab.html) for Microsoft Windows or Linux operating systems.
 * [Instrument Control Toolbox](http://www.mathworks.co.uk/products/instrument/)
 * The [PicoScope Support Toolbox](http://uk.mathworks.com/matlabcentral/fileexchange/53681-picoscope-support-toolbox)
 
@@ -97,5 +97,5 @@ are trademarks of The Mathworks, Inc.
 
 *Linux* is the registered trademark of Linus Torvalds in the U.S. and other countries.
 
-Copyright © 2013-2017 Pico Technology Ltd. All rights reserved. 
+Copyright ï¿½ 2013-2019 Pico Technology Ltd. All rights reserved. 
 
