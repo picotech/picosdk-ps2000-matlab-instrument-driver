@@ -1,6 +1,6 @@
 # PicoScope 2000 Series - MATLAB Generic Instrument Driver
 
-This MATLAB� Generic Instrument Driver allows you to acquire block and streaming data from the PicoScope� 2000 Series Oscilloscopes and control in-built signal generator functionality. The data could be processed in MATLAB using functions from Toolboxes such as [Signal Processing Toolbox](https://www.mathworks.com/products/signal.html). 
+This MATLAB® Generic Instrument Driver allows you to acquire block and streaming data from the PicoScope® 2000 Series Oscilloscopes and control in-built signal generator functionality. The data could be processed in MATLAB using functions from Toolboxes such as [Signal Processing Toolbox](https://www.mathworks.com/products/signal.html). 
 
 The driver has been created using Instrument Control Toolbox v3.2 and updated using Instrument Control Toolbox v3.6.
 
@@ -14,7 +14,7 @@ This Instrument Driver package includes the following:
   * Acquire data in Block mode  
   * Use the Built-in Function/Arbitrary Waveform Generator (model-dependent)
 
-## Supported Models
+## Supported models
 
 The driver will work with the following PicoScope models:
 
