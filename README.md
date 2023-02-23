@@ -38,6 +38,7 @@ For PicoScope 2205 MSO, 2205A MSO, 2206, 2206A/B/B MSO, 2207A/B/B MSO, 2208A/B/B
 * [MATLAB](https://uk.mathworks.com/products/matlab.html) for Microsoft Windows or Linux operating systems.
 * [Instrument Control Toolbox](http://www.mathworks.co.uk/products/instrument/)
 * The [PicoScope Support Toolbox](http://uk.mathworks.com/matlabcentral/fileexchange/53681-picoscope-support-toolbox)
+* The [PicoSDK C Wrapper Binaries](https://github.com/picotech/picosdk-c-wrappers-binaries)
 
 **Notes:**
 
